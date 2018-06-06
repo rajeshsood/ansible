@@ -1,0 +1,16 @@
+---
+ - name: Create snapshot
+  # hosts: localhost
+   vars:
+     instance_id: i-0a02d7a2ba59becbe
+     device_name: /dev/sda1
+     description: Snapshot of instance
+     key_name: id_rsa
+  # tasks:
+# - name: Create snapshot
+   ec2_snapshot:
+     instance_id: "{{instance_id}}" 
+     device_name: "{{device_name}}"
+     description: "{{description}}"
+     key_name: "{{key_name}}"
+

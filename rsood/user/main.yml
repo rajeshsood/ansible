@@ -1,0 +1,12 @@
+# Basic user creation example
+---
+- hosts: localhost
+  tasks:
+    - include_vars:
+        file: /home/ansible/rsood/user/var.yml
+    - iam:
+        iam_type: user
+        name: "{{ name }}"
+        state: absent
+        password: "{{ password }}"
+        access_key_state: create

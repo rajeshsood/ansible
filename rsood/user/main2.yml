@@ -1,0 +1,15 @@
+# Create a user and attach a managed policy using its ARN
+---
+- hosts: localhost
+  tasks:
+    - include_vars:
+        file: /home/ansible/rsood/user/var.yml
+    - iam_user:
+        name: "{{ item.key }}"
+        managed_policy:
+          - arn:aws:iam::aws:policy/AmazonSNSFullAccess
+          - arn:aws:iam::aws:policy/AmazonS3FullAccess
+        state: absent
+       # purge_policy: true
+      with_dict: "{{ adduser_lst }}"
+

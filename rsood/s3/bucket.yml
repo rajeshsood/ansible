@@ -1,0 +1,13 @@
+---
+- hosts: localhost 
+  gather_facts: no 
+  connection: local 
+  vars: 
+    bucketname: rsood1234
+  tasks: 
+    - name: create an S3 bucket 
+      aws_s3:
+        bucket: "{{ bucketname }}" 
+        mode: delete
+        permission: public-read
+        region: ap-southeast-1

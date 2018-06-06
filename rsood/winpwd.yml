@@ -1,0 +1,10 @@
+# Example of getting a password
+---
+- hosts: localhost
+  tasks:
+#    - name: get the Administrator password
+    - ec2_win_password:
+        profile: my-boto-profile
+        instance_id: i-0902e34eba67c74bd
+        region: ap-southeast-1
+        key_file: "/home/ansible/rsood/testaws.pem"

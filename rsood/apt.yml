@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+    - name: Install Apache package
+      apt: name={{item}} 
+           state=present 
+           update_cache=yes
+      with_items:
+        - apache2

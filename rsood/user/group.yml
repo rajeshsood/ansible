@@ -1,0 +1,13 @@
+# Create a group and attach a managed policy using its ARN
+---
+- hosts: localhost
+  tasks:
+    - iam_group:
+        name: testgroup1
+        managed_policy:
+          - arn:aws:iam::aws:policy/AmazonSNSFullAccess
+          - arn:aws:iam::aws:policy/AmazonS3FullAccess       
+        users:
+          - test1
+          - test3
+        state: absent

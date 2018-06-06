@@ -1,0 +1,16 @@
+---
+adduser_lst:
+  test1:
+    comment: testing user
+    group: testgrp
+    password: $6$L3bAWGk7H5FN.gIj$3p2PYZ.GBpOgAdfMlb.9ncd7AQVktW.Dw08EPeTwvN7iXaWDbhYdUXKnaaKVmafjXhfU8FvDZn13EmTugrkCE.
+
+  test2:
+    comment: testing user
+    group: testgrp
+    password: $6$L3bAWGk7H5FN.gIj$3p2PYZ.GBpOgAdfMlb.9ncd7AQVktW.Dw08EPeTwvN7iXaWDbhYdUXKnaaKVmafjXhfU8FvDZn13EmTugrkCE.
+
+  test3:
+    comment: testing user
+    group: testgrp
+    password: $6$L3bAWGk7H5FN.gIj$3p2PYZ.GBpOgAdfMlb.9ncd7AQVktW.Dw08EPeTwvN7iXaWDbhYdUXKnaaKVmafjXhfU8FvDZn13EmTugrkCE

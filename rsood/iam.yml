@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+#  vars_files:
+# - group_vars/all/var.yml
+  tasks:
+  - name: Create two new IAM users with API keys
+    iam:
+      iam_type: user
+      name: "{{ item }}"
+      password: "{{ temp_pass }}"
+      state: present
+      access_key_state: create
+    with_items:
+      - admin1
+      - admin2

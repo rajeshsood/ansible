@@ -1,0 +1,34 @@
+---
+- name: Create an EC2 Instance
+  hosts: localhost
+  vars:
+   image: ami-52d4802e
+   region: ap-southeast-1
+   instance_type: t2.micro
+   key_name: testaws
+  tasks:
+  - name: Creating a EC2 instance
+    ec2:
+     image: "{{image}}"
+     region: "{{region}}"
+     instance_type: "{{instance_type}}"
+     key_name: "{{key_name}}"
+     state: "present"
+     wait: true
+    register: ec2
+    
+# tasks:
+  - name: install apache2
+    apt: name=apache2 update_cache=yes state=latest
+
+#  handlers:
+  - name: restart apache2
+    service: name=apache2 state=restarted
+
+# systemctl status apache2
+
+#  - name: Delete EC2 instance
+#    ec2:
+#      region: "{{region}}"
+#      state: "absent"
+#      instance_ids: "{{ec2.instance_ids}}"

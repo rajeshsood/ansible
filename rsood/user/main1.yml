@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  gather_facts: False
+  tasks:
+    - block:
+      - name: Include Variables
+        include_vars:
+          file: /home/ansible/rsood/user/var.yml
+      - name: Add General Users
+        iam:
+          iam_type: user
+          name: "{{ item.key }}"
+          #comment: "{{ item.value.comment }}"
+          #groups: "{{ item.value.group }}"
+          password: "{{ item.value.password }}"
+          access_key_state: create
+          #force: yes
+          state: absent
+        with_dict: "{{ adduser_lst }}"

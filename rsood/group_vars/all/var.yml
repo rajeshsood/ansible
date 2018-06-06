@@ -1,0 +1,7 @@
+---
+users:
+  name: "user1"
+  password: ABCD@1234pqr
+
+  name: "user2"
+  password: ABCD@1234pqr

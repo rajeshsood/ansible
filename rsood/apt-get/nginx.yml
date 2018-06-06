@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Install 'apache' service but avoid starting it immediately
+      apt: name=apache2 state=absent
+      environment:
+        RUNLEVLEL: 1
+      notify:
+        - Install Apache
+
+    - name: Update repositories cache and install "ntp" package
+      apt:
+        name: ntp
+        update_cache: yes
+        state: present
+   
+  handlers:
+    - name: start ntp
+      service: name=ntp state=started

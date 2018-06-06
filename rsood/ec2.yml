@@ -1,0 +1,23 @@
+---
+- name: Create a EC2 Instance
+  hosts: localhost
+  vars:
+   image: ami-52d4802e
+   region: ap-southeast-1
+   instance_type: t2.micro
+   key_name: id_rsa
+  tasks:
+  - name: Creating a EC2 instance
+    ec2:
+     image: "{{image}}"
+     region: "{{region}}"
+     instance_type: "{{instance_type}}"
+     key_name: "{{key_name}}"
+     state: "present"
+     wait: true
+    register: ec2
+  - name: Delete EC2 instance
+    ec2:
+      region: "{{region}}"
+      state: "absent"
+      instance_ids: "{{ec2.instance_ids}}"
