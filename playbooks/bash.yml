@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  gather_facts: yes
+#  remote_user: root
+#  serial: "20%"
+#  sudo: yes
+  tasks:
+    - name: Update shell (Debian)
+      apt: name=bash
+           state=latest
+           update_cache=yes
+      when: ansible_os_family == "Debian"
+
+    - name: Update shell(RedHat)
+      yum: name=bash
+           state=latest
+           update_cache=yes
+      when: ansible_os_family == "RedHat"
